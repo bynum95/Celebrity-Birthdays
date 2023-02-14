@@ -1,0 +1,18 @@
+{
+  "dependencies": {
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
+    "@mui/icons-material": "^5.11.0",
+    "@mui/material": "^5.11.8",
+    "@mui/system": "^5.11.8",
+    "@mui/x-data-grid": "^5.17.23",
+    "@mui/x-date-pickers": "^5.0.18",
+    "date-fns": "^2.29.3",
+    "dayjs": "^1.11.7",
+    "luxon": "^3.2.1",
+    "moment": "^2.29.4",
+    "ts-loader": "^9.4.2",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1"
+  }
+}
