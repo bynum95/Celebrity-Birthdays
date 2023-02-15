@@ -245,12 +245,12 @@ export default function BirthdayManager()
     };
 
     const totalColumn: GridColDef[] = [{
-        field: 'TotalCompanyHolidays',
-        headerName: 'Total Company Holidays',
+        field: 'TotalBirthdays',
+        headerName: 'Total Birthdays',
         flex: 1,
         renderCell: () => {
             return (
-                rows.length * 8 + ' hours'
+                rows.length + ' birthdays'
             )
         }
     }];
@@ -259,6 +259,16 @@ export default function BirthdayManager()
         {field: 'CelebrityName', headerName: 'Celebrity Name', flex: 1, minWidth: 300},
         {field: 'BirthdayDate', headerName: 'Birthday Date', flex: 1, minWidth: 300},
         {field: 'DepartureDay', headerName: 'Departure Day', flex: 1, minWidth: 300},
+        {field: 'Age', headerName: 'Age', minWidth: 100, renderCell: ((row: GridRowModel) => {
+            const date: Date = new Date();
+            console.log(date);
+            let year: number = date.getFullYear();
+            let rowDate: Date = new Date(row['BirthdayDate']);
+            console.log(row['BirthdayDate']);
+            let rowYear: number = rowDate.getFullYear();
+
+            return (year - rowYear)
+            })},
         {
             field: "",
             type: 'actions',
@@ -286,7 +296,7 @@ export default function BirthdayManager()
     ];
 
     return (
-        <Box id="holiday-manager"
+        <Box id="birthday-manager"
              sx={{
                  height: 800,
                  width: '100%',
