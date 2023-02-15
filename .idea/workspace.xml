@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6e97d170-9f8c-4eee-a641-6675791fbbdd" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/celebrity-birthdays/src/birthday-manager.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/celebrity-birthdays/src/birthday-manager.tsx" afterDir="false" />
-    </list>
+    <list default="true" id="6e97d170-9f8c-4eee-a641-6675791fbbdd" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -57,7 +54,7 @@
       <option name="presentableId" value="Default" />
       <updated>1676332416577</updated>
       <workItem from="1676332419038" duration="20884000" />
-      <workItem from="1676468820878" duration="2124000" />
+      <workItem from="1676468820878" duration="2624000" />
     </task>
     <servers />
   </component>
