@@ -2,7 +2,7 @@ import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { Box } from "@mui/system";
 import BirthdayManager from "../birthday-manager";
 import {createTheme, ThemeProvider} from "@mui/material/styles";
-import {GridColDef, GridRowsProp} from "@mui/x-data-grid";
+
 
 const theme = createTheme({
     palette: {
@@ -62,10 +62,7 @@ const theme = createTheme({
         },
     },
 });
-const row: GridRowsProp = [{}];
-const totalRow: GridRowsProp = [{}];
-const columns: GridColDef[] = [{field: '' }];
-const totalColumn: GridColDef[] = [{field: ''}];
+
 export default {
     component: BirthdayManager,
 } as ComponentMeta<typeof BirthdayManager>;
@@ -75,10 +72,12 @@ const Template: ComponentStory<typeof BirthdayManager> = (args) => {
         <ThemeProvider theme={theme}>
             <Box
                 sx={{
-                    border: 1,
+
                     borderRadius: 1,
-                    borderColor: 'background.default',
-                    height: '53rem'
+                    borderColor: '#40514E',
+                    height: '53rem',
+                    backgroundColor: '#E4F9F5',
+                    borderBlock: 'auto'
                 }}>
                 <BirthdayManager/>
             </Box>

@@ -9,12 +9,13 @@ import {ChangeEvent, useEffect, useState} from "react";
 import * as dayjs from "dayjs";
 import {Dayjs} from "dayjs";
 import {AddDeleteDialog} from "./add-delete-dialog";
+import {CSSTransition, TransitionGroup} from "react-transition-group";
 
-interface HolidayInfo {
+interface BirthdayInfo {
     id: string,
-    CompanyHolidayName: string,
-    HolidayDate: string,
-    ActualDayOff: string
+    CelebrityName: string,
+    BirthdayDate: string,
+    DepartureDay: string
 }
 
 interface BasicMenuInput {
@@ -54,13 +55,13 @@ export function BasicMenu({addCallback, deleteCallback}: BasicMenuInput) {
             >
                 <MenuItem onClick={() => {
                     handleClose()
-                    addCallback()}}>Add Holiday</MenuItem>
+                    addCallback()}}>Add Birthday</MenuItem>
                 <MenuItem onClick={
                     () => {
                         handleClose();
                         deleteCallback();
                     }
-                }>Delete Holidays</MenuItem>
+                }>Delete Birthdays</MenuItem>
             </Menu>
         </div>
     );
@@ -70,91 +71,91 @@ export default function BirthdayManager()
 
 {
 
-    const defaultHolidays: HolidayInfo[] = JSON.parse(JSON.stringify([
+    const defaultBirthdays: BirthdayInfo[] = JSON.parse(JSON.stringify([
             {
                 "id": "1",
-                "CompanyHolidayName": "New Year's Day",
-                "HolidayDate": "1/01/2023",
-                "ActualDayOff": "1/01/2023"
+                "CelebrityName": "Beyonce",
+                "BirthdayDate": "09/04/1981",
+                "DepartureDay": ""
             },
             {
                 "id": "2",
-                "CompanyHolidayName": "MLK Day",
-                "HolidayDate": "1/17/2023",
-                "ActualDayOff": "1/17/2023"
+                "CelebrityName": "Martin Luther King Jr.",
+                "BirthdayDate": "1/15/1929",
+                "DepartureDay": "4/04/1968"
             },
             {
                 "id": "3",
-                "CompanyHolidayName": "President's Day",
-                "HolidayDate": "2/15/2023",
-                "ActualDayOff": "2/15/2023"
+                "CelebrityName": "Maya Angelou",
+                "BirthdayDate": "4/04/1928",
+                "DepartureDay": "5/28/2014"
             },
             {
                 "id": "4",
-                "CompanyHolidayName": "Memorial Day",
-                "HolidayDate": "5/30/2023",
-                "ActualDayOff": "5/30/2023"
+                "CelebrityName": "Marvin Gaye",
+                "BirthdayDate": "4/02/1939",
+                "DepartureDay": "4/01/1984"
             },
             {
                 "id": "5",
-                "CompanyHolidayName": "Juneteenth",
-                "HolidayDate": "6/19/2023",
-                "ActualDayOff": "6/20/2023"
+                "CelebrityName": "Jean-Michel Basquiat",
+                "BirthdayDate": "12/22/1960",
+                "DepartureDay": "8/12/1988"
             },
             {
                 "id": "6",
-                "CompanyHolidayName": "Independence Day",
-                "HolidayDate": "7/04/2023",
-                "ActualDayOff": "7/04/2023"
+                "CelebrityName": "Serena Williams",
+                "BirthdayDate": "9/26/1981",
+                "DepartureDay": ""
             },
             {
                 "id": "7",
-                "CompanyHolidayName": "Labor Day",
-                "HolidayDate": "9/04/2023",
-                "ActualDayOff": "9/04/2023"
+                "CelebrityName": "Tupac Shakur",
+                "BirthdayDate": "6/16/1971",
+                "DepartureDay": "9/13/1996"
             },
             {
                 "id": "8",
-                "CompanyHolidayName": "US Indigenous People's Day",
-                "HolidayDate": "10/11/2023",
-                "ActualDayOff": "10/11/2023"
+                "CelebrityName": "Malcolm x",
+                "BirthdayDate": "5/19/1925",
+                "DepartureDay": "2/21/1965"
             },
             {
                 "id": "9",
-                "CompanyHolidayName": "Veteran's Day",
-                "HolidayDate": "11/11/2023",
-                "ActualDayOff": "11/11/2023"
+                "CelebrityName": "Madam C.J. Walker",
+                "BirthdayDate": "12/23/1867",
+                "DepartureDay": "5/25/1919"
             },
             {
                 "id": "10",
-                "CompanyHolidayName": "Thanksgiving",
-                "HolidayDate": "11/27/2023",
-                "ActualDayOff": "11/27/2023"
+                "CelebrityName": "Barack Obama",
+                "BirthdayDate": "8/04/1961",
+                "DepartureDay": ""
             },
             {
                 "id": "11",
-                "CompanyHolidayName": "Day After Thanksgiving",
-                "HolidayDate": "11/28/2023",
-                "ActualDayOff": "11/28/2023"
+                "CelebrityName": "Nelson Mandela",
+                "BirthdayDate": "7/18/1918",
+                "DepartureDay": "12/05/2013"
             },
             {
                 "id": "12",
-                "CompanyHolidayName": "Christmas Eve",
-                "HolidayDate": "12/24/2023",
-                "ActualDayOff": "12/24/2023"
+                "CelebrityName": "Billie Holiday",
+                "BirthdayDate": "4/07/1915",
+                "DepartureDay": "7/17/1959"
             },
             {
                 "id": "13",
-                "CompanyHolidayName": "Christmas",
-                "HolidayDate": "12/25/2023",
-                "ActualDayOff": "12/25/2023"
+                "CelebrityName": "Sam Cooke",
+                "BirthdayDate": "1/22/1931",
+                "DepartureDay": "12/11/1964"
             }
         ]
     ));
 
     const totalRow: GridRowsProp = [{id: 1, TotalCompanyHolidays: 'total holiday amount', width: 'flex'}];
 
-    const row: GridRowsProp = [...defaultHolidays];
+    const row: GridRowsProp = [...defaultBirthdays];
 
     //keep track of rows for deleting
     const [rows, setRows] = useState([...row]);
@@ -166,29 +167,29 @@ export default function BirthdayManager()
     const [openAdd, setOpenAdd] = useState(false);
 
     //state for holiday date pickers
-    const [holidayDate, setHolidayDate] = useState<Dayjs | null>(
+    const [birthdayDate, setBirthdayDate] = useState<Dayjs | null>(
         dayjs('2022/09/28T21:11:54')
     );
     const [actualDate, setActualDate] = useState<Dayjs | null>(
         dayjs('2022-09-28T21:11:54')
     );
-    const [newHoliday, setNewHoliday] = useState<string>('');
+    const [newBirthday, setNewBirthday] = useState<string>('');
     const [errorMessage, setErrorMessage] = useState('');
 
     useEffect(() => {
-        if (newHoliday.length > 4) {
+        if (newBirthday.length > 4) {
             setErrorMessage('');
         }
-    }, [newHoliday, errorMessage]);
+    }, [newBirthday, errorMessage]);
 
     useEffect(() => {
-        if (newHoliday.length < 4) {
+        if (newBirthday.length < 4) {
             setErrorMessage('Holiday name has less than 4 characters');
         }
-    }, [newHoliday]);
+    }, [newBirthday]);
 
-    const handleHolidayChange = (newValue: Dayjs | null ) => {
-        setHolidayDate(newValue);
+    const handleBirthdayChange = (newValue: Dayjs | null ) => {
+        setBirthdayDate(newValue);
     }
 
     const handleActualChange = (newValue: Dayjs | null ) => {
@@ -218,13 +219,13 @@ export default function BirthdayManager()
         const key: number = Math.floor(Math.random() * 100) + 13;
         const newRow: GridRowModel = {
             id: key,
-            CompanyHolidayName: newHoliday,
-            HolidayDate: holidayDate?.format('MM/DD/YYYY'),
-            ActualDayOff: actualDate?.format('MM/DD/YYYY')
+            CelebrityName: newBirthday,
+            BirthdayDate: birthdayDate?.format('MM/DD/YYYY'),
+            DepartureDay: actualDate?.format('MM/DD/YYYY')
         };
-        if (rows.filter((row) => row['CompanyHolidayName'] === newRow['CompanyHolidayName']
-            && row['HolidayDate'] === newRow['HolidayDate']
-            && row['ActualDayOff'] === newRow['ActualDayOff']).length === 0){
+        if (rows.filter((row) => row['CelebrityName'] === newRow['CelebrityName']
+            && row['BirthdayDate'] === newRow['BirthdayDate']
+            && row['DepartureDay'] === newRow['DepartureDay']).length === 0){
             setRows(rows.concat(newRow));
         }
         handleClose();
@@ -255,9 +256,9 @@ export default function BirthdayManager()
     }];
 
     const columns: GridColDef[] = [
-        {field: 'CompanyHolidayName', headerName: 'Company Holiday Name', flex: 1, minWidth: 300},
-        {field: 'HolidayDate', headerName: 'Holiday Date', flex: 1, minWidth: 300},
-        {field: 'ActualDayOff', headerName: 'Actual Day Off', flex: 1, minWidth: 300},
+        {field: 'CelebrityName', headerName: 'Celebrity Name', flex: 1, minWidth: 300},
+        {field: 'BirthdayDate', headerName: 'Birthday Date', flex: 1, minWidth: 300},
+        {field: 'DepartureDay', headerName: 'Departure Day', flex: 1, minWidth: 300},
         {
             field: "",
             type: 'actions',
@@ -302,8 +303,10 @@ export default function BirthdayManager()
                     width: '100%',
                     height: 100,
                     '& .MuiDataGrid-columnHeader': {
-                        backgroundColor: 'primary.light',
-                        width: '100%'
+                        backgroundColor: '#40514E',
+                        width: '100%',
+                        color: '#11999E',
+                        fontSize: 18
                     },
                     '& .MuiDataGrid-columnSeparator': {
                         display: 'none'
@@ -313,6 +316,9 @@ export default function BirthdayManager()
                     },
                     '& .MuiDataGrid-footerContainer': {
                         display: 'none'
+                    },
+                    '& .MuiDataGrid-cell': {
+                        backgroundColor: "#E4F9F5"
                     }
                 }
                 }
@@ -328,8 +334,10 @@ export default function BirthdayManager()
                     border: 'none',
                     width: '100%',
                     '& .MuiDataGrid-columnHeader': {
-                        backgroundColor: 'primary.light',
-                        width: '100%'
+                        backgroundColor: '#40514E',
+                        width: '100%',
+                        color: '#11999E',
+                        fontSize: 18
                     },
                     '& .MuiDataGrid-columnSeparator': {
                         display: 'none'
@@ -341,7 +349,8 @@ export default function BirthdayManager()
                         display: 'none'
                     },
                     '& .MuiDataGrid-cell': {
-                        borderBottom: 'none'
+                        borderBottom: 'none',
+                        backgroundColor: "#E4F9F5"
                     }
                 }
                 }
@@ -351,11 +360,11 @@ export default function BirthdayManager()
 
             <AddDeleteDialog open={openDelete} onClose={handleClose} selectedRow={selectedRow}
                                            onClick={() => handleDeleteClick({...selectedRow})} open1={openAdd}
-                                           newHoliday={newHoliday} helperText={errorMessage}
-                                           onChange={(newValue: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => setNewHoliday(newValue.target.value)}
+                                           newBirthday={newBirthday} helperText={errorMessage}
+                                           onChange={(newValue: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => setNewBirthday(newValue.target.value)}
                                            onChange1={(newValue: Dayjs | null) => {
-                                               handleHolidayChange(newValue)
-                                           }} value={holidayDate} renderInput={(params: TextFieldProps) => <TextField {...params}
+                                               handleBirthdayChange(newValue)
+                                           }} value={birthdayDate} renderInput={(params: TextFieldProps) => <TextField {...params}
                                                                                                                       sx={{label: {color: "#141414"}}}/>}
                                            onChange2={(newValue: Dayjs | null) => {
                                                handleActualChange(newValue)

@@ -16,7 +16,7 @@ import {DesktopDatePicker} from "@mui/x-date-pickers/DesktopDatePicker";
 
 export function AddDeleteDialog(props: {
     open: boolean, onClose: () => void,
-    selectedRow: GridValidRowModel | undefined, onClick: () => void, open1: boolean, newHoliday: string,
+    selectedRow: GridValidRowModel | undefined, onClick: () => void, open1: boolean, newBirthday: string,
     helperText: string, onChange: (newValue: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => void,
     onChange1: (newValue: (dayjs.Dayjs | null)) => void, value: dayjs.Dayjs | null,
     renderInput: (params: TextFieldProps) => JSX.Element, onChange2: (newValue: (dayjs.Dayjs | null)) => void,
@@ -31,7 +31,7 @@ export function AddDeleteDialog(props: {
                 }
             }}
             open={props.open} onClose={props.onClose}>
-            <DialogTitle>Delete Holiday</DialogTitle>
+            <DialogTitle>Delete Birthday</DialogTitle>
             <DialogContent>
                 <div>
                     <TextField sx={{
@@ -44,8 +44,8 @@ export function AddDeleteDialog(props: {
                                disabled
                                margin="dense"
                                id="standard"
-                               label="Holiday Name"
-                               defaultValue={props.selectedRow?.["row"].CompanyHolidayName}
+                               label="Celebrity Name"
+                               defaultValue={props.selectedRow?.["row"].CelebrityName}
                                fullWidth
                                variant="standard"
                     />
@@ -59,8 +59,8 @@ export function AddDeleteDialog(props: {
                                disabled
                                margin="dense"
                                id="outlined"
-                               label="Holiday Date"
-                               defaultValue={props.selectedRow?.["row"].HolidayDate}
+                               label="Birthday Date"
+                               defaultValue={props.selectedRow?.["row"].BirthdayDate}
                                fullWidth
                                variant="outlined"
                                InputProps={{
@@ -82,8 +82,8 @@ export function AddDeleteDialog(props: {
                                disabled
                                margin="dense"
                                id="outlined"
-                               label="Actual Day Off"
-                               defaultValue={props.selectedRow?.["row"].ActualDayOff}
+                               label="Departure Day"
+                               defaultValue={props.selectedRow?.["row"].DepartureDay}
                                fullWidth
                                variant="outlined"
                                InputProps={{
@@ -108,18 +108,18 @@ export function AddDeleteDialog(props: {
         </Dialog>
 
         <Dialog open={props.open1} onClose={props.onClose}>
-            <DialogTitle>Create New Holiday</DialogTitle>
+            <DialogTitle>Create New Birthday</DialogTitle>
             <DialogContent>
                 <TextField sx={{
                     "& .MuiFormLabel-root": {
                         color: "primary.main"
                     }
                 }
-                } error={props.newHoliday.length < 4}
+                } error={props.newBirthday.length < 4}
                            helperText={props.helperText}
                            margin="dense"
-                           id="holiday-name"
-                           label="Holiday Name"
+                           id="celebrity-name"
+                           label="Celebrity Name"
                            placeholder="Start typing"
                            type="search"
                            fullWidth
@@ -133,7 +133,7 @@ export function AddDeleteDialog(props: {
                                 OpenPickerIcon: CalendarMonthIcon
                             }
                             }
-                            label="Holiday Date"
+                            label="Birthday Date"
                             inputFormat="MM/DD/YYYY"
                             onChange={props.onChange1}
                             value={props.value}
@@ -144,7 +144,7 @@ export function AddDeleteDialog(props: {
                                 OpenPickerIcon: CalendarMonthIcon
                             }
                             }
-                            label="Actual Day Off"
+                            label="Departure Day"
                             inputFormat="MM/DD/YYYY"
                             onChange={props.onChange2}
                             value={props.value1}
