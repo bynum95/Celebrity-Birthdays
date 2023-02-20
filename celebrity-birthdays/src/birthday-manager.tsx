@@ -244,6 +244,22 @@ export default function BirthdayManager()
         }
     };
 
+    const calculateAge = (currentRow: GridRowModel) => {
+        const celebrityBirthday: Date = new Date(currentRow.row['BirthdayDate']);
+        const celebrityYear: number = celebrityBirthday.getFullYear();
+        const todayDate: Date = new Date();
+        const todayYear: number = todayDate.getFullYear();
+        const deathYear: number = new Date(currentRow.row['DepartureDay']).getFullYear();
+        // console.log(deathYear);
+        console.log(typeof deathYear);
+
+        if (currentRow.row['DepartureDay'] === '') {
+            return todayYear - celebrityYear;
+        } else {
+            return deathYear - celebrityYear;
+        }
+    }
+
     const totalColumn: GridColDef[] = [{
         field: 'TotalBirthdays',
         headerName: 'Total Birthdays',
@@ -259,16 +275,9 @@ export default function BirthdayManager()
         {field: 'CelebrityName', headerName: 'Celebrity Name', flex: 1, minWidth: 300},
         {field: 'BirthdayDate', headerName: 'Birthday Date', flex: 1, minWidth: 300},
         {field: 'DepartureDay', headerName: 'Departure Day', flex: 1, minWidth: 300},
-        {field: 'Age', headerName: 'Age', minWidth: 100, renderCell: ((row: GridRowModel) => {
-            const date: Date = new Date();
-            console.log(date);
-            let year: number = date.getFullYear();
-            let rowDate: Date = new Date(row['BirthdayDate']);
-            console.log(row['BirthdayDate']);
-            let rowYear: number = rowDate.getFullYear();
-
-            return (year - rowYear)
-            })},
+        {field: 'Age', headerName: 'Age', minWidth: 100, renderCell: (row: GridRowModel) => {
+            return (calculateAge(row))
+            }},
         {
             field: "",
             type: 'actions',
