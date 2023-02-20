@@ -6,7 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="6e97d170-9f8c-4eee-a641-6675791fbbdd" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/celebrity-birthdays/src/add-delete-dialog.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/celebrity-birthdays/src/add-delete-dialog.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/celebrity-birthdays/src/birthday-manager.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/celebrity-birthdays/src/birthday-manager.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/celebrity-birthdays/src/stories/celebrity-manager.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/celebrity-birthdays/src/stories/celebrity-manager.stories.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,7 +30,7 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="ProjectErrors" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="2LhnvtR7RN1MmIskUBxeu0G46E5" />
   <component name="ProjectViewState">
@@ -59,7 +62,7 @@
       <workItem from="1676332419038" duration="20884000" />
       <workItem from="1676468820878" duration="2765000" />
       <workItem from="1676501422278" duration="2935000" />
-      <workItem from="1676920112404" duration="1510000" />
+      <workItem from="1676920112404" duration="3823000" />
     </task>
     <servers />
   </component>

@@ -27,16 +27,18 @@ export function AddDeleteDialog(props: {
             PaperProps={{
                 sx: {
                     maxWidth: 300,
-                    verticalAlign: "middle"
+                    verticalAlign: "middle",
+                    fontFamily: "cursive"
                 }
             }}
             open={props.open} onClose={props.onClose}>
-            <DialogTitle>Delete Birthday</DialogTitle>
+            <DialogTitle sx={{fontFamily: "cursive"}}>Delete Birthday</DialogTitle>
             <DialogContent>
                 <div>
                     <TextField sx={{
                         "& .MuiFormLabel-root": {
-                            color: "primary.main"
+                            color: "primary.main",
+                            fontFamily: "cursive"
                         },
                         maxWidth: 400
                     }
@@ -51,7 +53,8 @@ export function AddDeleteDialog(props: {
                     />
                     <TextField sx={{
                         "& .MuiFormLabel-root": {
-                            color: "primary.main"
+                            color: "primary.main",
+                            fontFamily: "cursive"
                         },
                         maxWidth: 400
                     }
@@ -74,7 +77,8 @@ export function AddDeleteDialog(props: {
                     />
                     <TextField sx={{
                         "& .MuiFormLabel-root": {
-                            color: "primary.main"
+                            color: "primary.main",
+                            fontFamily: "cursive"
                         },
                         maxWidth: 400
                     }
@@ -103,16 +107,18 @@ export function AddDeleteDialog(props: {
                     onClick={props.onClick}
                 >Delete
                 </Button>
-                <Button variant="contained" onClick={props.onClose} color="secondary">Cancel</Button>
+                <Button variant="contained" onClick={props.onClose} background-color='#40514E'
+                        color="secondary">Cancel</Button>
             </DialogActions>
         </Dialog>
 
         <Dialog open={props.open1} onClose={props.onClose}>
-            <DialogTitle>Create New Birthday</DialogTitle>
+            <DialogTitle sx={{fontFamily: "cursive"}}>Create New Birthday</DialogTitle>
             <DialogContent>
                 <TextField sx={{
                     "& .MuiFormLabel-root": {
-                        color: "primary.main"
+                        color: "primary.main",
+                        fontFamily: "cursive"
                     }
                 }
                 } error={props.newBirthday.length < 4}
@@ -126,7 +132,7 @@ export function AddDeleteDialog(props: {
                            variant="standard"
                            onChange={props.onChange}
                 />
-                <LocalizationProvider dateAdapter={AdapterDayjs}>
+                <LocalizationProvider sx={{fontFamily: "cursive"}} dateAdapter={AdapterDayjs}>
                     <Stack spacing={3}>
                         <DesktopDatePicker
                             components={{

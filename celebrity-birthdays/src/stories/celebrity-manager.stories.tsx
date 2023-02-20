@@ -2,16 +2,17 @@ import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { Box } from "@mui/system";
 import BirthdayManager from "../birthday-manager";
 import {createTheme, ThemeProvider} from "@mui/material/styles";
+import React from "react";
 
 
 const theme = createTheme({
     palette: {
         primary: {
-            main: "rgba(204, 100, 2, 1)",
+            main: "#11999E",
             light: "rgba(204, 100, 2, 0.3)",
         },
         secondary: {
-            main: "rgba(50, 54, 67, 1)",
+            main: "#40514E",
         },
         text: {
             primary: "#141414",
@@ -29,7 +30,7 @@ const theme = createTheme({
                     style: ({theme}) => ({
                         backgroundColor: theme.palette.primary.main,
                         color: theme.palette.text.primary,
-                        fontFamily: "'Outfit'",
+                        fontFamily: "cursive",
                         fontStyle: "normal",
                         fontWeight: 700,
                         fontSize: "15px",
@@ -46,7 +47,7 @@ const theme = createTheme({
                     style: ({theme}) => ({
                         backgroundColor: theme.palette.secondary.main,
                         color: theme.palette.text.secondary,
-                        fontFamily: "'Outfit'",
+                        fontFamily: "cursive",
                         fontStyle: "normal",
                         fontWeight: 700,
                         fontSize: "15px",

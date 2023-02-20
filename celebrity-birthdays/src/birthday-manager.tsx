@@ -4,12 +4,11 @@ import {Box} from "@mui/system";
 import {IconButton, Menu, MenuItem, TextFieldProps} from "@mui/material";
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import TextField from '@mui/material/TextField';
-import * as React from "react";
+import React from "react"
 import {ChangeEvent, useEffect, useState} from "react";
-import * as dayjs from "dayjs";
+import dayjs from "dayjs";
 import {Dayjs} from "dayjs";
 import {AddDeleteDialog} from "./add-delete-dialog";
-import {CSSTransition, TransitionGroup} from "react-transition-group";
 
 interface BirthdayInfo {
     id: string,
@@ -74,7 +73,7 @@ export default function BirthdayManager()
     const defaultBirthdays: BirthdayInfo[] = JSON.parse(JSON.stringify([
             {
                 "id": "1",
-                "CelebrityName": "Beyonce",
+                "CelebrityName": "Beyonce Knowles-Carter",
                 "BirthdayDate": "09/04/1981",
                 "DepartureDay": ""
             },
@@ -116,7 +115,7 @@ export default function BirthdayManager()
             },
             {
                 "id": "8",
-                "CelebrityName": "Malcolm x",
+                "CelebrityName": "Malcolm X",
                 "BirthdayDate": "5/19/1925",
                 "DepartureDay": "2/21/1965"
             },
@@ -325,7 +324,8 @@ export default function BirthdayManager()
                         backgroundColor: '#40514E',
                         width: '100%',
                         color: '#11999E',
-                        fontSize: 18
+                        fontSize: 18,
+                        fontFamily: "cursive"
                     },
                     '& .MuiDataGrid-columnSeparator': {
                         display: 'none'
@@ -337,7 +337,8 @@ export default function BirthdayManager()
                         display: 'none'
                     },
                     '& .MuiDataGrid-cell': {
-                        backgroundColor: "#E4F9F5"
+                        backgroundColor: "#E4F9F5",
+                        fontFamily: "cursive"
                     }
                 }
                 }
@@ -356,7 +357,8 @@ export default function BirthdayManager()
                         backgroundColor: '#40514E',
                         width: '100%',
                         color: '#11999E',
-                        fontSize: 18
+                        fontSize: 18,
+                        fontFamily: "cursive"
                     },
                     '& .MuiDataGrid-columnSeparator': {
                         display: 'none'
@@ -369,7 +371,8 @@ export default function BirthdayManager()
                     },
                     '& .MuiDataGrid-cell': {
                         borderBottom: 'none',
-                        backgroundColor: "#E4F9F5"
+                        backgroundColor: "#E4F9F5",
+                        fontFamily: "cursive"
                     }
                 }
                 }
